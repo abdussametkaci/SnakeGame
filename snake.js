@@ -41,7 +41,8 @@ function main() {
   if (has_game_ended()) {
     start.disabled = false
     clearInterval(run)
-    reset()
+    popup_message()
+    //reset() -> clsbtn'da resetleniyor
     return;
   }
 
@@ -140,10 +141,10 @@ function gen_food() {
 }
 
 function change_direction(event) {
-  const LEFT_KEY = 37;
-  const RIGHT_KEY = 39;
-  const UP_KEY = 38;
-  const DOWN_KEY = 40;
+  const LEFT_KEY = [37, 65];
+  const RIGHT_KEY = [39, 68];
+  const UP_KEY = [38, 87];
+  const DOWN_KEY = [40, 83];
 
   // Prevent the snake from reversing
 
@@ -154,19 +155,19 @@ function change_direction(event) {
   const goingDown = dy === 10;
   const goingRight = dx === 10;
   const goingLeft = dx === -10;
-  if (keyPressed === LEFT_KEY && !goingRight) {
+  if ((keyPressed === LEFT_KEY[0] || keyPressed === LEFT_KEY[1]) && !goingRight) {
     dx = -10;
     dy = 0;
   }
-  if (keyPressed === UP_KEY && !goingDown) {
+  if ((keyPressed === UP_KEY[0] || keyPressed === UP_KEY[1]) && !goingDown) {
     dx = 0;
     dy = -10;
   }
-  if (keyPressed === RIGHT_KEY && !goingLeft) {
+  if ((keyPressed === RIGHT_KEY[0] || keyPressed === RIGHT_KEY[1]) && !goingLeft) {
     dx = 10;
     dy = 0;
   }
-  if (keyPressed === DOWN_KEY && !goingUp) {
+  if ((keyPressed === DOWN_KEY[0] || keyPressed === DOWN_KEY[1]) && !goingUp) {
     dx = 0;
     dy = 10;
   }
@@ -182,7 +183,7 @@ function move_snake() {
     // Increase score
     score += 1;
     // Display score on screen
-    document.getElementById('score').innerHTML = "Score: " + score;
+    score_id.innerText = "Score: " + score;
     // Generate new food location
     gen_food();
   } else {
@@ -202,6 +203,23 @@ function reset() {
   ]
 
   score = 0
+  score_id.innerText = "Score: 0"
+}
+
+function popup_message() {
+  message_score.innerText = "Score: " + score
+  popup()
+}
+
+start.onclick = () => start_game();
+
+popup = () => message_box.style.display = "block";
+
+closebtn.onclick = () => {
+  message_box.style.display = 'none'
+  reset()
+  clear_board()
+  drawSnake()
 }
 
 clear_board();
