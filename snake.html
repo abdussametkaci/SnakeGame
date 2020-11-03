@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Snake Game</title>
 </head>
 
@@ -10,22 +10,25 @@
 <body>
   <h1>Snake Game</h1>
 
-  <div id="score">Score: 0</div>
+  <div id="score_id">Score: 0</div>
 
-  <button id="start" onclick="start_game()">Start</button>
+  <button id="start">Start</button>
 
   <br>
 
   <canvas id="snakeboard" width="400" height="400"></canvas>
-
-  <style>
-    #score{
-      font-size: 35px;
-    }
-
-  </style>
+  
+  <div id="message_box" class="callout">
+    <div class="callout-header">Game Over</div>
+    <span id="closebtn" class="closebtn">×</span>
+    <div class="callout-container">
+      <p id="message_score">Score: </p>
+    </div>
+  </div>
 
 </body>
+
+<link rel="stylesheet" href="snake.css">
 
 <script type="text/javascript" src="snake.js"></script>
 
