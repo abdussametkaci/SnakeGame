@@ -191,10 +191,6 @@ function move_snake() {
   }
 }
 
-function changeMode() {
-  MODE = MODE == 0 ? 1 : 0;
-}
-
 function reset() {
   // reset default values
   snake = [
