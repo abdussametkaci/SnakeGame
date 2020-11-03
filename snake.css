@@ -1,0 +1,42 @@
+#score_id{
+    font-size: 35px;
+}
+
+.callout {
+    display: none;
+    position: fixed;
+    padding-top: 200px; /* Location of the box */
+    left: 0;
+    top: 0;
+    bottom: 35px;
+    right: 20px;
+    margin-left: 20px;
+    max-width: 300px;
+  }
+  
+  .callout-header {
+    padding: 25px 15px;
+    background: #555;
+    font-size: 30px;
+    color: white;
+  }
+  
+  .callout-container {
+    padding: 15px;
+    background-color: #ccc;
+    color: black
+  }
+  
+  .closebtn {
+    position: absolute;
+    padding-top: 200px; /* Location of the box */
+    top: 5px;
+    right: 15px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+  .closebtn:hover {
+    color: lightgrey;
+  }
